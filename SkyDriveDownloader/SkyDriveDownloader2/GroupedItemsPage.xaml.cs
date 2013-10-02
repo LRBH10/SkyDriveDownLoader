@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Json;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -90,10 +91,16 @@ namespace SkyDriveDownloader2
                     {
                         LiveConnectClient connect = new LiveConnectClient(auth.Session);
                         LiveOperationResult operationResult = await connect.GetAsync("me/skydrive/files");
-                        dynamic result = operationResult.Result;
+                        dynamic result = operationResult.RawResult;
                         if (result != null)
                         {
-                            this.pageTitle.Text = string.Join(" ", "Hello", result.data[0].id, "!");
+
+                            Files re = Files.GetResponseApiFrom(result);
+                            this.pageTitle.Text = re.ToString();
+
+
+
+                            
                         }
                         else
                         {
