@@ -1,0 +1,182 @@
+﻿<common:LayoutAwarePage
+    x:Name="pageRoot"
+    x:Class="SkyDriveDownloader2.ItemDetailPage"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SkyDriveDownloader2"
+    xmlns:data="using:SkyDriveDownloader2.Data"
+    xmlns:common="using:SkyDriveDownloader2.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+
+        <!-- Collection d'éléments affichés par cette page -->
+        <CollectionViewSource
+            x:Name="itemsViewSource"
+            Source="{Binding Items}"
+            d:Source="{Binding AllGroups[0].Items, Source={d:DesignInstance Type=data:SampleDataSource, IsDesignTimeCreatable=True}}"/>
+    </Page.Resources>
+
+    <!--
+        La grille sert de panneau racine à la page, permettant de définir deux lignes :
+        * La ligne 0 qui contient le bouton Précédent et le titre de la page
+        * La ligne 1 qui contient le reste de la page
+    -->
+    <Grid
+        Style="{StaticResource LayoutRootStyle}"
+        DataContext="{Binding Group}"
+        d:DataContext="{Binding AllGroups[0], Source={d:DesignInstance Type=data:SampleDataSource, IsDesignTimeCreatable=True}}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--
+            Le reste de la page n'est constitué que d'un grand FlipView affichant les détails
+            d'un élément à la fois, et permettant à l'utilisateur de parcourir tous les éléments d'un groupe
+            donné
+        -->
+        <FlipView
+            x:Name="flipView"
+            AutomationProperties.AutomationId="ItemsFlipView"
+            AutomationProperties.Name="Item Details"
+            TabIndex="1"
+            Grid.RowSpan="2"
+            ItemsSource="{Binding Source={StaticResource itemsViewSource}}">
+
+            <FlipView.ItemContainerStyle>
+                <Style TargetType="FlipViewItem">
+                    <Setter Property="Margin" Value="0,137,0,0"/>
+                </Style>
+            </FlipView.ItemContainerStyle>
+
+            <FlipView.ItemTemplate>
+                <DataTemplate>
+
+                    <!--
+                        UserControl est choisi comme modèle d'élément, car il prend en charge la gestion des états visuels
+                        Les événements chargés/déchargés s'abonnent explicitement pour afficher les mises à jour d'états d'affichage à partir de la page
+                    -->
+                    <UserControl Loaded="StartLayoutUpdates" Unloaded="StopLayoutUpdates">
+                        <ScrollViewer x:Name="scrollViewer" Style="{StaticResource HorizontalScrollViewerStyle}" Grid.Row="1">
+
+                            <!-- Le contenu est autorisé à se trouver dans autant de colonnes que nécessaire -->
+                            <common:RichTextColumns x:Name="richTextColumns" Margin="117,0,117,47">
+                                <RichTextBlock x:Name="richTextBlock" Width="560" Style="{StaticResource ItemRichTextStyle}" IsTextSelectionEnabled="False">
+                                    <Paragraph>
+                                        <Run FontSize="26.667" FontWeight="Light" Text="{Binding Title}"/>
+                                        <LineBreak/>
+                                        <LineBreak/>
+                                        <Run FontWeight="Normal" Text="{Binding Subtitle}"/>
+                                    </Paragraph>
+                                    <Paragraph LineStackingStrategy="MaxHeight">
+                                        <InlineUIContainer>
+                                            <Image x:Name="image" MaxHeight="480" Margin="0,20,0,10" Stretch="Uniform" Source="{Binding Image}" AutomationProperties.Name="{Binding Title}"/>
+                                        </InlineUIContainer>
+                                    </Paragraph>
+                                    <Paragraph>
+                                        <Run FontWeight="SemiLight" Text="{Binding Content}"/>
+                                    </Paragraph>
+                                </RichTextBlock>
+
+                                <!-- Des colonnes supplémentaires sont créées à partir de ce modèle -->
+                                <common:RichTextColumns.ColumnTemplate>
+                                    <DataTemplate>
+                                        <RichTextBlockOverflow Width="560" Margin="80,0,0,0">
+                                            <RichTextBlockOverflow.RenderTransform>
+                                                <TranslateTransform X="-1" Y="4"/>
+                                            </RichTextBlockOverflow.RenderTransform>
+                                        </RichTextBlockOverflow>
+                                    </DataTemplate>
+                                </common:RichTextColumns.ColumnTemplate>
+                            </common:RichTextColumns>
+
+                            <VisualStateManager.VisualStateGroups>
+
+                                <!-- Les états visuels reflètent l'état d'affichage de l'application au sein du FlipView -->
+                                <VisualStateGroup x:Name="ApplicationViewStates">
+                                    <VisualState x:Name="FullScreenLandscape"/>
+                                    <VisualState x:Name="Filled"/>
+
+                                    <!-- Respecter la convention de marge étroite de 100 pixels pour le mode Portrait -->
+                                    <VisualState x:Name="FullScreenPortrait">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="richTextColumns" Storyboard.TargetProperty="Margin">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="97,0,87,57"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="image" Storyboard.TargetProperty="MaxHeight">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="400"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <!-- Lorsque l'état d'affichage a la valeur Snapped, le contenu est reformaté et le défilement devient vertical -->
+                                    <VisualState x:Name="Snapped">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="richTextColumns" Storyboard.TargetProperty="Margin">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="17,0,17,57"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="scrollViewer" Storyboard.TargetProperty="Style">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource VerticalScrollViewerStyle}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="richTextBlock" Storyboard.TargetProperty="Width">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="280"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="image" Storyboard.TargetProperty="MaxHeight">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="160"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </ScrollViewer>
+                    </UserControl>
+                </DataTemplate>
+            </FlipView.ItemTemplate>
+        </FlipView>
+
+        <!-- Bouton Précédent et titre de la page -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+            <TextBlock x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource PageHeaderTextStyle}" Grid.Column="1" IsHitTestVisible="false"/>
+        </Grid>
+
+        <VisualStateManager.VisualStateGroups>
+
+            <!-- Les états visuels reflètent l'état d'affichage de l'application -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="FullScreenLandscape"/>
+                <VisualState x:Name="Filled"/>
+
+                <!-- Le bouton Précédent respecte la convention de marge étroite de 100 pixels pour le mode Portrait -->
+                <VisualState x:Name="FullScreenPortrait">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PortraitBackButtonStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
+                <!-- Le bouton Précédent et le titre ont un style différent lorsque l'état d'affichage a la valeur Snapped -->
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedBackButtonStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</common:LayoutAwarePage>

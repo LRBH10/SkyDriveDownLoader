@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="SkyDriveDownloader.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SkyDriveDownloader"
+    xmlns:common="using:SkyDriveDownloader.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    
+    
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <TextBox x:Name="infoTextBlock" HorizontalAlignment="Left" Margin="506,218,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="548" Height="274"/>
+        <Button x:ConnectionId='1' Content="Button" HorizontalAlignment="Left" Margin="934,551,0,0" VerticalAlignment="Top"                       />
+
+    </Grid>
+</Page>
+
