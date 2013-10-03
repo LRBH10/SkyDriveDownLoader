@@ -39,7 +39,7 @@ namespace SkyDriveDownloader
 
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(View));
+            
             /*
             try
             {

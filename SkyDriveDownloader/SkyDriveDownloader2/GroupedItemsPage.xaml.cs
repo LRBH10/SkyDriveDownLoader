@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.Serialization.Json;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -19,15 +20,32 @@ using Windows.UI.Xaml.Navigation;
 
 namespace SkyDriveDownloader2
 {
+
+    public struct LiveConfig
+    {
+        public static LiveAuthClient Auth;
+        public static LiveConnectClient ConnectClient;
+        public static LiveLoginResult LoginResult;
+
+    }
     /// <summary>
     /// Page affichant une collection groupée d'éléments.
     /// </summary>
     public sealed partial class GroupedItemsPage : SkyDriveDownloader2.Common.LayoutAwarePage
     {
+
+        static bool first_run = true;
+
+        public FileDetails Current;
+
         public GroupedItemsPage()
         {
             this.InitializeComponent();
-            Initialisation();
+            if (first_run)
+            {
+                Initialisation();
+                first_run = false;
+            }
         }
 
         /// <summary>
@@ -39,11 +57,28 @@ namespace SkyDriveDownloader2
         /// </param>
         /// <param name="pageState">Dictionnaire d'état conservé par cette page durant une session
         /// antérieure. Null lors de la première visite de la page.</param>
-        protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
+        protected override async void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             // TODO: créez un modèle de données approprié pour le domaine posant problème pour remplacer les exemples de données
-            var sampleDataGroups = SampleDataSource.GetGroups((String)navigationParameter);
-            this.DefaultViewModel["Groups"] = sampleDataGroups;
+            if (navigationParameter is String)
+            {
+                var sampleDataGroups = SampleDataSource.GetGroups((String)navigationParameter);
+                this.DefaultViewModel["Groups"] = sampleDataGroups;
+            }
+            else if (navigationParameter is FileDetails)
+            {
+                FileDetails casted = (FileDetails)navigationParameter;
+                SampleDataSource.GetInstance.AllGroups.Clear();
+
+                Current = casted;
+                if(casted.parent_id != null)
+                    pageTitle.Text = casted.parent_id;
+
+                await Files.GetDirectoryView(casted);
+
+                var sampleDataGroups = SampleDataSource.GetGroups(casted);
+                this.DefaultViewModel["Groups"] = sampleDataGroups;
+            }
         }
 
         /// <summary>
@@ -54,11 +89,11 @@ namespace SkyDriveDownloader2
         void Header_Click(object sender, RoutedEventArgs e)
         {
             // Déterminez le groupe représenté par l'instance Button
-            var group = (sender as FrameworkElement).DataContext;
+            //var group = (sender as FrameworkElement).DataContext;
 
             // Accédez à la page de destination souhaitée, puis configurez la nouvelle page
             // en transmettant les informations requises en tant que paramètre de navigation.
-            this.Frame.Navigate(typeof(GroupDetailPage), ((SampleDataGroup)group).UniqueId);
+            //this.Frame.Navigate(typeof(GroupDetailPage), ((SampleDataGroup)group).UniqueId);
         }
 
         /// <summary>
@@ -71,36 +106,42 @@ namespace SkyDriveDownloader2
         {
             // Accédez à la page de destination souhaitée, puis configurez la nouvelle page
             // en transmettant les informations requises en tant que paramètre de navigation.
-            var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
-            this.Frame.Navigate(typeof(ItemDetailPage), itemId);
+
+
+            var itemId = (SampleDataItem)e.ClickedItem;
+
+            if (itemId.Data.type == "folder" || itemId.Data.type == "album")
+            {
+                Frame.Navigate(typeof(GroupedItemsPage), itemId.Data);
+                
+            }
+            else
+            {
+                this.Frame.Navigate(typeof(ItemDetailPage), itemId.UniqueId);
+            }
+
         }
 
 
-        LiveAuthClient auth;
 
         private async void Initialisation()
         {
             try
             {
-                auth = new LiveAuthClient();
-                LiveLoginResult initializeResult = await auth.InitializeAsync();
+                LiveConfig.Auth = new LiveAuthClient();
+                LiveLoginResult initializeResult = await LiveConfig.Auth.InitializeAsync();
                 try
                 {
-                    LiveLoginResult loginResult = await auth.LoginAsync(new string[] { "wl.basic wl.skydrive" });
-                    if (loginResult.Status == LiveConnectSessionStatus.Connected)
+                    LiveConfig.LoginResult = await LiveConfig.Auth.LoginAsync(new string[] { "wl.basic wl.skydrive" });
+                    if (LiveConfig.LoginResult.Status == LiveConnectSessionStatus.Connected)
                     {
-                        LiveConnectClient connect = new LiveConnectClient(auth.Session);
-                        LiveOperationResult operationResult = await connect.GetAsync("me/skydrive/files");
+                        LiveConfig.ConnectClient = new LiveConnectClient(LiveConfig.Auth.Session);
+                        LiveOperationResult operationResult = await LiveConfig.ConnectClient.GetAsync("me/skydrive");
                         dynamic result = operationResult.RawResult;
                         if (result != null)
                         {
-
-                            Files re = Files.GetResponseApiFrom(result);
-                            this.pageTitle.Text = re.ToString();
-
-
-
-                            
+                            FileDetails re = FileDetails.GetResponseApiFrom(result);
+                            await Files.GetDirectoryView(re);
                         }
                         else
                         {
@@ -121,6 +162,18 @@ namespace SkyDriveDownloader2
             {
                 this.pageTitle.Text = "Error initializing: " + exception.Message;
             }//*/
+        }
+
+        private async void GoBackUser(object sender, RoutedEventArgs e)
+        {
+            LiveOperationResult operationResult = await LiveConfig.ConnectClient.GetAsync(Current.parent_id);
+            dynamic result = operationResult.RawResult;
+            if (result != null)
+            {
+                FileDetails re = FileDetails.GetResponseApiFrom(result);
+                Frame.Navigate(typeof(GroupedItemsPage), re);
+            }
+                        
         }
 
 

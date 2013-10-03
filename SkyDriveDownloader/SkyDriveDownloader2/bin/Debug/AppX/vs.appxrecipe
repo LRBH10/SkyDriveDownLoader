@@ -16,17 +16,17 @@
     <AppXManifest Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-10-02T13:44:43.227</Modified>
+      <Modified>2013-10-03T12:25:13.199</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Debug\SkyDriveDownloader2.exe">
       <PackagePath>SkyDriveDownloader2.exe</PackagePath>
-      <Modified>2013-10-02T14:31:37.138</Modified>
+      <Modified>2013-10-03T14:49:07.104</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Debug\SkyDriveDownloader2.pdb">
       <PackagePath>SkyDriveDownloader2.pdb</PackagePath>
-      <Modified>2013-10-02T14:31:37.072</Modified>
+      <Modified>2013-10-03T14:49:07.081</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Live\v5.4\Windows Store app XAML\References\CommonConfiguration\Neutral\Microsoft.Live.dll">
       <PackagePath>Microsoft.Live.dll</PackagePath>
@@ -74,7 +74,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Debug\GroupedItemsPage.xaml">
       <PackagePath>GroupedItemsPage.xaml</PackagePath>
-      <Modified>2013-10-02T12:35:04.604</Modified>
+      <Modified>2013-10-03T14:32:06.556</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Debug\GroupDetailPage.xaml">
       <PackagePath>GroupDetailPage.xaml</PackagePath>
