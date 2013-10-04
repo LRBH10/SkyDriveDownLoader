@@ -160,7 +160,7 @@
                         <Rectangle
                             x:Name="FocusVisualWhite"
                             IsHitTestVisible="False"
-                            Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}"
+                            Stroke="Black"
                             StrokeEndLineCap="Square"
                             StrokeDashArray="1,1"
                             Opacity="0"
@@ -1441,9 +1441,9 @@
                 <ControlTemplate TargetType="Button">
                     <Grid x:Name="RootGrid">
                         <Grid Margin="-1,-16,0,0">
-                            <TextBlock x:Name="BackgroundGlyph" Text="&#xE0A8;" Foreground="{StaticResource BackButtonBackgroundThemeBrush}"/>
+                            <TextBlock x:Name="BackgroundGlyph" Text="&#xE0A8;" Foreground="#DE080FA8"/>
                             <TextBlock x:Name="NormalGlyph" Text="{StaticResource BackButtonGlyph}" Foreground="{StaticResource BackButtonForegroundThemeBrush}"/>
-                            <TextBlock x:Name="ArrowGlyph" Text="&#xE0A6;" Foreground="{StaticResource BackButtonPressedForegroundThemeBrush}" Opacity="0"/>
+                            <TextBlock x:Name="ArrowGlyph" Text="&#xE0A6;" Foreground="#DE080FA8" Opacity="0"/>
                         </Grid>
                         <Rectangle
                             x:Name="FocusVisualWhite"
@@ -1465,7 +1465,7 @@
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal" />
-                                <VisualState x:Name="PointerOver">
+                                <!--VisualState x:Name="PointerOver">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackgroundGlyph" Storyboard.TargetProperty="Foreground">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BackButtonPointerOverBackgroundThemeBrush}"/>
@@ -1474,7 +1474,7 @@
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BackButtonPointerOverForegroundThemeBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
-                                </VisualState>
+                                </VisualState-->
                                 <VisualState x:Name="Pressed">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackgroundGlyph" Storyboard.TargetProperty="Foreground">
@@ -1643,13 +1643,13 @@
 
     <!-- Modèle d'élément carré de 250 pixels convenant pour une grille, comme affiché dans le GroupedItemsPage et le ItemsPage -->
     <DataTemplate x:Key="Standard250x250ItemTemplate">
-        <Grid HorizontalAlignment="Left" Width="250" Height="250">
+        <Grid HorizontalAlignment="Left" Width="200" Height="200">
             <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}">
                 <Image Source="{Binding Image}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
             </Border>
-            <StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
-                <TextBlock Text="{Binding Title}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="60" Margin="15,0,15,0"/>
-                <TextBlock Text="{Binding Subtitle}" Foreground="{StaticResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
+            <StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}" Height="50">
+                <TextBlock Text="{Binding Title}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="30" Margin="15,0,15,0"/>
+                <TextBlock HorizontalAlignment="Right" Text="{Binding Subtitle}" Foreground="{StaticResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" Margin="15,-10,30,10"/>
             </StackPanel>
         </Grid>
     </DataTemplate>
@@ -1750,52 +1750,6 @@
       Modèle d'élément de 190 x 130 pixels pour l'affichage d'aperçus de fichiers, comme affiché dans le FileOpenPickerPage
       Inclut une info-bulle sophistiquée pour afficher le texte du titre et de la description
   -->
-    <DataTemplate x:Key="StandardFileWithTooltip190x130ItemTemplate">
-        <Grid>
-            <Grid Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}">
-                <Image
-                    Source="{Binding Image}"
-                    Width="190"
-                    Height="130"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Stretch="Uniform"/>
-            </Grid>
-            <ToolTipService.Placement>Souris</ToolTipService.Placement>
-            <ToolTipService.ToolTip>
-                <ToolTip>
-                    <ToolTip.Style>
-                        <Style TargetType="ToolTip">
-                            <Setter Property="BorderBrush" Value="{StaticResource ToolTipBackgroundThemeBrush}" />
-                            <Setter Property="Padding" Value="0" />
-                        </Style>
-                    </ToolTip.Style>
-
-                    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Margin="20">
-                            <Image
-                                Source="{Binding Image}"
-                                Width="160"
-                                Height="160"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Stretch="Uniform"/>
-                        </Grid>
-                        <StackPanel Width="200" Grid.Column="1" Margin="0,20,20,20">
-                            <TextBlock Text="{Binding Title}" TextWrapping="NoWrap" Style="{StaticResource BodyTextStyle}"/>
-                            <TextBlock Text="{Binding Description}" MaxHeight="140" Foreground="{StaticResource ApplicationSecondaryForegroundThemeBrush}" Style="{StaticResource BodyTextStyle}"/>
-                        </StackPanel>
-                    </Grid>
-                </ToolTip>
-            </ToolTipService.ToolTip>
-        </Grid>
-    </DataTemplate>
-
     <!-- Styles de ScrollViewer -->
 
     <Style x:Key="HorizontalScrollViewerStyle" TargetType="ScrollViewer">

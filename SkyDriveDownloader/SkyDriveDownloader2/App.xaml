@@ -17,8 +17,7 @@
             </ResourceDictionary.MergedDictionaries>
 
             <!-- Ressources spécifiques à l'application -->
-
-            <x:String x:Key="AppName">SkyDrive Downloader</x:String>
+            <x:String x:Key="AppName">SkyDrive</x:String>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -104,10 +104,35 @@ namespace SkyDriveDownloader2.Data
 
         public void AddItemView(SampleDataGroup gr)
         {
+
+            string icon = Icons.map["default"];
+            if (type == "folder" || type == "album") 
+            {
+                icon = Icons.map[type];
+            }
+            else if (type == "file")
+            {
+                foreach (KeyValuePair<string, string> iterator in Icons.map)
+                {
+                    if (name.EndsWith(iterator.Key))
+                    {
+                        icon = iterator.Value;
+                        break;
+                    }
+                }
+            }
+            else if (type == "photo")
+            {
+                icon = source;
+            }
+
+
+            float megasize = (float)size / (float)(1024 * 1024);
+
             var item = new SampleDataItem(id,
                     name,
-                    description,
-                    "Assets/MediumGray.png",
+                    megasize.ToString("F")+" Mo",
+                    icon,
                     source,
                     type,
                     gr);

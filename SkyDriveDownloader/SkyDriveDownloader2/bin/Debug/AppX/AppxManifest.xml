@@ -7,7 +7,7 @@
 
     Pour plus d'informations sur les fichiers manifeste, consultez http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="25246bibouh123.SkyDriveDownloader" Publisher="CN=4F652775-655B-453A-A8E1-C7B21A2D7901" Version="1.0.0.0" ProcessorArchitecture="neutral" />
+  <Identity Name="25246bibouh123.SkyDriveDownloader" Publisher="CN=4F652775-655B-453A-A8E1-C7B21A2D7901" Version="1.0.0.2" ProcessorArchitecture="neutral" />
   <Properties>
     <DisplayName>SkyDrive Downloader</DisplayName>
     <PublisherDisplayName>bibouh123</PublisherDisplayName>
@@ -22,7 +22,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="SkyDriveDownloader2.exe" EntryPoint="SkyDriveDownloader2.App">
-      <VisualElements DisplayName="SkyDrive Downloader" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="SkyDriveDownloader2" ForegroundText="light" BackgroundColor="#464646">
+      <VisualElements DisplayName="SkyDrive Downloader" Logo="Assets\Logo.png" SmallLogo="Assets\Logo30x30.png" Description="Une Application Qui Facilite  la gestion de Le téléchargement à partir de Skydrive." ForegroundText="light" BackgroundColor="#464646">
         <DefaultTile ShowName="allLogos" />
         <SplashScreen Image="Assets\SplashScreen.png" />
       </VisualElements>

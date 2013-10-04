@@ -7,6 +7,8 @@ using System.Linq;
 using System.Runtime.Serialization.Json;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.UI.ApplicationSettings;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -26,7 +28,6 @@ namespace SkyDriveDownloader2
         public static LiveAuthClient Auth;
         public static LiveConnectClient ConnectClient;
         public static LiveLoginResult LoginResult;
-
     }
     /// <summary>
     /// Page affichant une collection groupée d'éléments.
@@ -41,9 +42,12 @@ namespace SkyDriveDownloader2
         public GroupedItemsPage()
         {
             this.InitializeComponent();
+            SettingsPane.GetForCurrentView().CommandsRequested += DisplayPrivacyPolicy;
             if (first_run)
             {
                 Initialisation();
+                new Icons();
+                
                 first_run = false;
             }
         }
@@ -71,9 +75,7 @@ namespace SkyDriveDownloader2
                 SampleDataSource.GetInstance.AllGroups.Clear();
 
                 Current = casted;
-                if(casted.parent_id != null)
-                    pageTitle.Text = casted.parent_id;
-
+                
                 await Files.GetDirectoryView(casted);
 
                 var sampleDataGroups = SampleDataSource.GetGroups(casted);
@@ -106,23 +108,18 @@ namespace SkyDriveDownloader2
         {
             // Accédez à la page de destination souhaitée, puis configurez la nouvelle page
             // en transmettant les informations requises en tant que paramètre de navigation.
-
-
             var itemId = (SampleDataItem)e.ClickedItem;
 
             if (itemId.Data.type == "folder" || itemId.Data.type == "album")
             {
                 Frame.Navigate(typeof(GroupedItemsPage), itemId.Data);
-                
             }
             else
             {
-                this.Frame.Navigate(typeof(ItemDetailPage), itemId.UniqueId);
+                DownloadFile_Click(itemId.Data);
+                //this.Frame.Navigate(typeof(ItemDetailPage), itemId.UniqueId);
             }
-
         }
-
-
 
         private async void Initialisation()
         {
@@ -166,6 +163,11 @@ namespace SkyDriveDownloader2
 
         private async void GoBackUser(object sender, RoutedEventArgs e)
         {
+            if (Current.parent_id == null)
+            {
+                return;
+            }
+
             LiveOperationResult operationResult = await LiveConfig.ConnectClient.GetAsync(Current.parent_id);
             dynamic result = operationResult.RawResult;
             if (result != null)
@@ -173,9 +175,67 @@ namespace SkyDriveDownloader2
                 FileDetails re = FileDetails.GetResponseApiFrom(result);
                 Frame.Navigate(typeof(GroupedItemsPage), re);
             }
-                        
+        }
+
+        private System.Threading.CancellationTokenSource ctsDownload;
+
+        private async void DownloadFile_Click(FileDetails clicked)
+        {
+            MessageDialog dialog = null;
+            try
+            {
+                var picker = new Windows.Storage.Pickers.FileSavePicker();
+                picker.SuggestedFileName = clicked.name;
+                picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.Downloads;
+                picker.FileTypeChoices.Add("Tous Les Fichiers", new List<string>(new string[] { "." }));
+                picker.FileTypeChoices.Add("Images", new List<string>(new string[] { ".jpg" }));
+                picker.FileTypeChoices.Add("Documents", new List<string>(new string[] { ".pdf" }));
+                StorageFile file = await picker.PickSaveFileAsync();
+                if (file != null)
+                {
+                    this.progressBar.Value = 0;
+                    var progressHandler = new Progress<LiveOperationProgress>(
+                        (progress) => { this.progressBar.Value = progress.ProgressPercentage; });
+                    this.ctsDownload = new System.Threading.CancellationTokenSource();
+                    LiveConnectClient liveClient = new LiveConnectClient(LiveConfig.Auth.Session);
+                    await liveClient.BackgroundDownloadAsync(clicked.id, file, 
+                        this.ctsDownload.Token, progressHandler);
+
+                    dialog = new MessageDialog("Le téléchargement de fichier '" + clicked.name + "' est términé");
+                }
+            }
+            catch (System.Threading.Tasks.TaskCanceledException)
+            {
+                
+                dialog = new MessageDialog("Le téléchargement de dichier '" + clicked.name + "' est annulé");
+                
+            }
+            catch (LiveConnectException exception)
+            {
+                this.status.Text = "Error getting file contents: " + exception.Message;
+                dialog = new MessageDialog("Le téléchargement de dichier '" + clicked.name + "' est annulé : impossible de récupérer le fichier à partir de SkyDrive");
+            }
+            await dialog.ShowAsync();
+        }
+
+        private void btnCancelDownload_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.ctsDownload != null)
+            {
+                this.ctsDownload.Cancel();
+            }
         }
 
 
+        private void DisplayPrivacyPolicy(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs args)
+        {
+            SettingsCommand privacyPolicyCommand = new SettingsCommand("privacyPolicy", "Privacy Policy", (uiCommand) => { LaunchPrivacyPolicyUrl(); });
+            args.Request.ApplicationCommands.Add(privacyPolicyCommand);
+        }
+        async void LaunchPrivacyPolicyUrl()
+        {
+            Uri privacyPolicyUrl = new Uri("http://bibouh123.blog.com/2013/10/04/skydrive-downloader-policy/");
+            var result = await Windows.System.Launcher.LaunchUriAsync(privacyPolicyUrl);
+        }
     }
 }

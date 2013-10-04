@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>RLAOUADI-PRADEO</Machine>
+    <WindowsUser>Rabah</WindowsUser>
+    <SolutionConfiguration>Release|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Release\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Release\SkyDriveDownloader2.exe">
+      <PackagePath>SkyDriveDownloader2.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Release\SkyDriveDownloader2.pdb">
+      <PackagePath>SkyDriveDownloader2.pdb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Live\v5.4\Windows Store app XAML\References\CommonConfiguration\Neutral\Microsoft.Live.dll">
+      <PackagePath>Microsoft.Live.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\background.png">
+      <PackagePath>Assets\background.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\default.png">
+      <PackagePath>Assets\icons\default.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\docx.png">
+      <PackagePath>Assets\icons\docx.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\Folder.png">
+      <PackagePath>Assets\icons\Folder.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\logo.png">
+      <PackagePath>Assets\icons\logo.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\PDF.png">
+      <PackagePath>Assets\icons\PDF.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\Photos.png">
+      <PackagePath>Assets\icons\Photos.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\pptx.png">
+      <PackagePath>Assets\icons\pptx.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\skydriveDownLoader.png">
+      <PackagePath>Assets\icons\skydriveDownLoader.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\tex.png">
+      <PackagePath>Assets\icons\tex.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\txt.png">
+      <PackagePath>Assets\icons\txt.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\xlsx.png">
+      <PackagePath>Assets\icons\xlsx.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\zip.png">
+      <PackagePath>Assets\icons\zip.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\Logo.png">
+      <PackagePath>Assets\Logo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\Logo30x30.png">
+      <PackagePath>Assets\Logo30x30.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\SmallLogo.png">
+      <PackagePath>Assets\SmallLogo.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\SplashScreen.png">
+      <PackagePath>Assets\SplashScreen.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\LightGray.png">
+      <PackagePath>Assets\LightGray.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\MediumGray.png">
+      <PackagePath>Assets\MediumGray.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\DarkGray.png">
+      <PackagePath>Assets\DarkGray.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Release\App.xaml">
+      <PackagePath>App.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Release\Common\StandardStyles.xaml">
+      <PackagePath>Common\StandardStyles.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Release\GroupedItemsPage.xaml">
+      <PackagePath>GroupedItemsPage.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Release\GroupDetailPage.xaml">
+      <PackagePath>GroupDetailPage.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Release\ItemDetailPage.xaml">
+      <PackagePath>ItemDetailPage.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Release\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

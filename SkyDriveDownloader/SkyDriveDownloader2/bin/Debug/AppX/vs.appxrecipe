@@ -5,47 +5,103 @@
     <WindowsUser>Rabah</WindowsUser>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
-    <RegisteredManifestChecksum>794C3CD1851547EE915128F868AC6F9045A10C7BB74BD55FC6BC02BFC0A55111</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>25246bibouh123.SkyDriveDownloader_1.0.0.0_neutral__rqtkbcgvye8ym</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>D97F14E05684F4AB5CC169B5A98689ABF03243D48E18C6F3E2FEB013D3D8F51A</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>25246bibouh123.SkyDriveDownloader_1.0.0.2_neutral__rqtkbcgvye8ym</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>25246bibouh123.SkyDriveDownloader_rqtkbcgvye8ym!App</RegisteredUserModeAppID>
     <RegisteredPackageID>25246bibouh123.SkyDriveDownloader</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=4F652775-655B-453A-A8E1-C7B21A2D7901</RegisteredPackagePublisher>
-    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <RegisteredVersion>1.0.0.2</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-10-03T12:25:13.199</Modified>
+      <Modified>2013-10-04T13:08:35.479</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Debug\SkyDriveDownloader2.exe">
       <PackagePath>SkyDriveDownloader2.exe</PackagePath>
-      <Modified>2013-10-03T14:49:07.104</Modified>
+      <Modified>2013-10-04T13:21:52.392</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Debug\SkyDriveDownloader2.pdb">
       <PackagePath>SkyDriveDownloader2.pdb</PackagePath>
-      <Modified>2013-10-03T14:49:07.081</Modified>
+      <Modified>2013-10-04T13:21:52.361</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Live\v5.4\Windows Store app XAML\References\CommonConfiguration\Neutral\Microsoft.Live.dll">
       <PackagePath>Microsoft.Live.dll</PackagePath>
       <Modified>2013-06-20T09:21:36.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\background.png">
+      <PackagePath>Assets\background.png</PackagePath>
+      <Modified>2013-10-04T11:13:24.930</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\default.png">
+      <PackagePath>Assets\icons\default.png</PackagePath>
+      <Modified>2013-10-04T06:22:31.476</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\docx.png">
+      <PackagePath>Assets\icons\docx.png</PackagePath>
+      <Modified>2013-10-04T06:07:12.664</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\Folder.png">
+      <PackagePath>Assets\icons\Folder.png</PackagePath>
+      <Modified>2013-10-04T05:44:10.575</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\logo.png">
+      <PackagePath>Assets\icons\logo.png</PackagePath>
+      <Modified>2013-10-04T11:35:54.541</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\PDF.png">
+      <PackagePath>Assets\icons\PDF.png</PackagePath>
+      <Modified>2013-10-04T06:07:36.851</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\Photos.png">
+      <PackagePath>Assets\icons\Photos.png</PackagePath>
+      <Modified>2013-10-04T05:44:10.573</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\pptx.png">
+      <PackagePath>Assets\icons\pptx.png</PackagePath>
+      <Modified>2013-10-04T06:09:59.227</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\skydriveDownLoader.png">
+      <PackagePath>Assets\icons\skydriveDownLoader.png</PackagePath>
+      <Modified>2013-10-04T10:38:56.582</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\tex.png">
+      <PackagePath>Assets\icons\tex.png</PackagePath>
+      <Modified>2013-10-04T06:08:52.675</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\txt.png">
+      <PackagePath>Assets\icons\txt.png</PackagePath>
+      <Modified>2013-10-04T06:11:10.710</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\xlsx.png">
+      <PackagePath>Assets\icons\xlsx.png</PackagePath>
+      <Modified>2013-10-04T06:10:34.018</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\icons\zip.png">
+      <PackagePath>Assets\icons\zip.png</PackagePath>
+      <Modified>2013-10-04T06:08:13.902</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-06-06T00:18:14.000</Modified>
+      <Modified>2013-10-04T11:30:43.825</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\Logo30x30.png">
+      <PackagePath>Assets\Logo30x30.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-10-04T11:31:44.091</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\SmallLogo.png">
       <PackagePath>Assets\SmallLogo.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2012-06-06T00:18:14.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\SplashScreen.png">
       <PackagePath>Assets\SplashScreen.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-06-06T00:18:14.000</Modified>
+      <Modified>2013-10-04T11:39:39.373</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
@@ -66,15 +122,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
-      <Modified>2013-10-02T13:33:00.311</Modified>
+      <Modified>2013-10-04T11:14:06.034</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Debug\Common\StandardStyles.xaml">
       <PackagePath>Common\StandardStyles.xaml</PackagePath>
-      <Modified>2012-07-26T18:25:16.000</Modified>
+      <Modified>2013-10-04T13:21:49.126</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Debug\GroupedItemsPage.xaml">
       <PackagePath>GroupedItemsPage.xaml</PackagePath>
-      <Modified>2013-10-03T14:32:06.556</Modified>
+      <Modified>2013-10-04T11:47:14.087</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Debug\GroupDetailPage.xaml">
       <PackagePath>GroupDetailPage.xaml</PackagePath>
@@ -86,7 +142,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2013-10-02T13:44:43.160</Modified>
+      <Modified>2013-10-04T13:08:35.238</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

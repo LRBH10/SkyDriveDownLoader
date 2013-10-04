@@ -14,6 +14,7 @@
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>SkyDriveDownloader2_StoreKey.pfx</PackageCertificateKeyFile>
     <PackageCertificateThumbprint>FF9DA83935437561EFFE4D640C77B2E913D4F8AC</PackageCertificateThumbprint>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -110,6 +111,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\icons.cs" />
     <Compile Include="DataModel\SkydriveModel.cs" />
     <Compile Include="GroupedItemsPage.xaml.cs">
       <DependentUpon>GroupedItemsPage.xaml</DependentUpon>
@@ -138,7 +140,21 @@
     <None Include="SkyDriveDownloader2_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\background.png" />
+    <Content Include="Assets\icons\default.png" />
+    <Content Include="Assets\icons\docx.png" />
+    <Content Include="Assets\icons\Folder.png" />
+    <Content Include="Assets\icons\logo.png" />
+    <Content Include="Assets\icons\PDF.png" />
+    <Content Include="Assets\icons\Photos.png" />
+    <Content Include="Assets\icons\pptx.png" />
+    <Content Include="Assets\icons\skydriveDownLoader.png" />
+    <Content Include="Assets\icons\tex.png" />
+    <Content Include="Assets\icons\txt.png" />
+    <Content Include="Assets\icons\xlsx.png" />
+    <Content Include="Assets\icons\zip.png" />
     <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\Logo30x30.png" />
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
