@@ -29,7 +29,3 @@ C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDo
 C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\obj\Debug\pri.resfiles
 C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\obj\Debug\LanguageQualifiers.txt
 C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\obj\Debug\ProjectArchitectures.txt
-C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\obj\Debug\priconfig.xml.intermediate
-C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\obj\Debug\layout.resfiles.intermediate
-C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\obj\Debug\resources.resfiles.intermediate
-C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\obj\Debug\pri.resfiles.intermediate

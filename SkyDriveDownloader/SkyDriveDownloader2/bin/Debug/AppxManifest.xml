@@ -7,7 +7,7 @@
 
     Pour plus d'informations sur les fichiers manifeste, consultez http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="25246bibouh123.SkyDriveDownloader" Publisher="CN=4F652775-655B-453A-A8E1-C7B21A2D7901" Version="1.0.0.4" ProcessorArchitecture="neutral" />
+  <Identity Name="25246bibouh123.SkyDriveDownloader" Publisher="CN=4F652775-655B-453A-A8E1-C7B21A2D7901" Version="1.0.0.6" ProcessorArchitecture="neutral" />
   <Properties>
     <DisplayName>SkyDrive Downloader</DisplayName>
     <PublisherDisplayName>bibouh123</PublisherDisplayName>

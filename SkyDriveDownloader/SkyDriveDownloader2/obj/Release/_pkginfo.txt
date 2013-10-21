@@ -1,1 +1,1 @@
-C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\AppPackages\SkyDriveDownloader2_1.0.0.6_AnyCPU_Test\SkyDriveDownloader2_1.0.0.6_AnyCPU.appx
+C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\AppPackages\SkyDriveDownloader2_1.0.0.10_AnyCPU_Test\SkyDriveDownloader2_1.0.0.10_AnyCPU.appx

@@ -215,6 +215,10 @@ namespace SkyDriveDownloader2
                 this.status.Text = "Error getting file contents: " + exception.Message;
                 dialog = new MessageDialog("Le téléchargement de dichier '" + clicked.name + "' est annulé : impossible de récupérer le fichier à partir de SkyDrive");
             }
+            if (dialog == null)
+            {
+                dialog = new MessageDialog("Le Téléchargement de fichier est annulé");
+            }
             await dialog.ShowAsync();
         }
 

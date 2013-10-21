@@ -5,28 +5,28 @@
     <WindowsUser>Rabah</WindowsUser>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
-    <RegisteredManifestChecksum>D97F14E05684F4AB5CC169B5A98689ABF03243D48E18C6F3E2FEB013D3D8F51A</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>25246bibouh123.SkyDriveDownloader_1.0.0.2_neutral__rqtkbcgvye8ym</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>0082BB5831F34E0BC95A1F0439BBE1C00153666923C10942E4AACAABFA3C6B64</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>25246bibouh123.SkyDriveDownloader_1.0.0.6_neutral__rqtkbcgvye8ym</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>25246bibouh123.SkyDriveDownloader_rqtkbcgvye8ym!App</RegisteredUserModeAppID>
     <RegisteredPackageID>25246bibouh123.SkyDriveDownloader</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=4F652775-655B-453A-A8E1-C7B21A2D7901</RegisteredPackagePublisher>
-    <RegisteredVersion>1.0.0.2</RegisteredVersion>
+    <RegisteredVersion>1.0.0.6</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-10-04T13:08:35.479</Modified>
+      <Modified>2013-10-21T05:46:06.449</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Debug\SkyDriveDownloader2.exe">
       <PackagePath>SkyDriveDownloader2.exe</PackagePath>
-      <Modified>2013-10-04T13:21:52.392</Modified>
+      <Modified>2013-10-21T05:48:37.534</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Debug\SkyDriveDownloader2.pdb">
       <PackagePath>SkyDriveDownloader2.pdb</PackagePath>
-      <Modified>2013-10-04T13:21:52.361</Modified>
+      <Modified>2013-10-21T05:48:37.469</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Live\v5.4\Windows Store app XAML\References\CommonConfiguration\Neutral\Microsoft.Live.dll">
       <PackagePath>Microsoft.Live.dll</PackagePath>
@@ -142,7 +142,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rabah\Documents\GitHub\SkyDriveDownLoader\SkyDriveDownloader\SkyDriveDownloader2\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2013-10-04T13:08:35.238</Modified>
+      <Modified>2013-10-21T05:46:05.796</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
